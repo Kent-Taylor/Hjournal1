@@ -22,7 +22,6 @@ const UpdateTrack = props => {
   const [showMessage, setShowMessage] = useState(false);
 
   const handleSubmit = async e => {
-    e.preventDefault();
     if (props.editMode) {
       await axios
         .put(`https://hjournal.herokuapp.com/journal/${props.id}`, {
@@ -69,6 +68,7 @@ const UpdateTrack = props => {
 
   const handleBackButton = () => {
     props.history.push("/home");
+    handleSubmit();
   };
 
   React.useEffect(() => {
