@@ -4,15 +4,20 @@
 // on did mount, check edit mode
 // if edit mode, get data from id and set your states to individual response fields
 
-import React from "react";
+import React, { useState } from "react";
 import { navigate } from "hookrouter";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
+
+import { Container, Button, Alert } from "react-bootstrap";
+import { CSSTransition } from "react-transition-group";
 
 const UpdateTrack = props => {
   const [pain_input, setPain_input] = React.useState("");
   const [journalDetail_input, setjournalDetail_input] = React.useState("");
   const [symptomInput, setSymptomInput] = React.useState("");
+  const [showButton, setShowButton] = useState(true);
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -25,6 +30,7 @@ const UpdateTrack = props => {
         })
         .then(window.location.reload)
         .then(navigate("/home"))
+
         .then(window.location.reload)
         .catch(error => console.log("put error", error));
 
@@ -57,6 +63,10 @@ const UpdateTrack = props => {
         setjournalDetail_input(data.journal_detail);
         setSymptomInput(data.symptom);
       });
+  };
+
+  const handleBackButton = () => {
+    props.history.push("/home");
   };
 
   React.useEffect(() => {
@@ -117,15 +127,41 @@ const UpdateTrack = props => {
             onChange={e => setjournalDetail_input(e.target.value)}
           />
         </div>
-        <div>
-          <button type="submit" className="common-button">
-            {props.editMode ? "Update" : "Submit"}
-          </button>
-        </div>
-        <div>
-          <NavLink className="common-button" to="/home">
-            Back
-          </NavLink>
+        <div />
+        <div className="alert-box">
+          <Container style={{ paddingTop: "2rem" }}>
+            {showButton && (
+              <Button
+                type="submit"
+                className="common-button"
+                onClick={() => setShowMessage(true)}
+                size="lg"
+              >
+                {props.editMode ? "Update" : "Submit"}
+              </Button>
+            )}
+            <CSSTransition
+              in={showMessage}
+              timeout={300}
+              classNames="alert"
+              unmountOnExit
+              onEnter={() => setShowButton(false)}
+              onExited={() => setShowButton(true)}
+            >
+              <Alert variant="primary" onClose={() => setShowMessage(false)}>
+                <div className="submition-message">
+                  <h1>Your track has been submitted!</h1>
+                </div>
+                <Button
+                  type="submit"
+                  onClick={handleBackButton}
+                  className="common-button"
+                >
+                  Back
+                </Button>
+              </Alert>
+            </CSSTransition>
+          </Container>
         </div>
       </form>
     </div>

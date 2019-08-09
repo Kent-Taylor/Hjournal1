@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSpring, animated } from "react-spring";
 
 import Journal from "../components/journal";
 const Home = props => {
@@ -11,8 +12,8 @@ const Home = props => {
     const fetchData = async () => {
       let result = await fetch("https://hjournal.herokuapp.com/journals")
         .then(response => response.json())
+        .then(setJournals(journals.filter(journal => journal.id !== props.id)))
         .then(data => setJournals(data))
-        .then(window.location.reload)
         .catch(error => console.log(error));
     };
     fetchData();
@@ -53,6 +54,7 @@ const Home = props => {
           <NavLink exact className="common-button" to="/updateTrack">
             New Symptom
           </NavLink>
+
           <div className="render-journals">{renderJournals()}</div>
         </div>
       </div>

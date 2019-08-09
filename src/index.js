@@ -48,6 +48,7 @@ function App(props) {
                 />
               )}
             />
+
             <Route
               path="/journal/:id"
               render={props => <Journal {...props} editJournal={editJournal} />}
