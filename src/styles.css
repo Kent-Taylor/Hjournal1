@@ -316,12 +316,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
+  outline: none;
 }
 
 .delete-button:hover {
   color: #ffffff;
   font-weight: 900;
   font-size: 1.2em;
+  background-color: transparent;
+  outline: none;
 }
 
 .symptom-text {
