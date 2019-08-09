@@ -318,6 +318,7 @@ body {
   justify-content: center;
   background-color: transparent;
   outline: none;
+  border: none;
 }
 
 .delete-button:hover {
@@ -326,6 +327,7 @@ body {
   font-size: 1.2em;
   background-color: transparent;
   outline: none;
+  border: none;
 }
 
 .symptom-text {
