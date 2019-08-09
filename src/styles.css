@@ -1,0 +1,370 @@
+body {
+  background-color: #421c52;
+  margin: 0px;
+  height: 100%;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #421c52;
+  margin: 0px;
+  height: 100%;
+}
+
+/* common styles */
+
+.manual-input-button {
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+  width: 80%;
+  background-color: transparent;
+  border: 1px solid #bdaec6;
+  border-radius: 30px;
+  font-size: 30px;
+  outline: none;
+  padding: 5px 0px;
+}
+
+.manual-input-button::placeholder {
+  text-align: center;
+  color: #bdaec6;
+  font-size: 30px;
+}
+
+.track-section {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.track-button {
+  cursor: pointer;
+  background-color: #732c7b;
+  width: 80%;
+  margin: 10px;
+  margin-bottom: 50px;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 32px;
+  padding: 5px 15px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.track-button:hover {
+  background-color: #873492;
+  width: 80%;
+  margin-bottom: 10px;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 32px;
+  padding: 5px 15px;
+}
+
+.common-button {
+  cursor: pointer;
+  background-color: #9c8aa5;
+  margin-bottom: 42px;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 32px;
+  padding: 5px 15px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.common-button:hover {
+  background-color: #b8a2c4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 32px;
+  padding: 5px 15px;
+}
+
+/* login page */
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button {
+  cursor: pointer;
+  background-color: #9c8aa5;
+  margin-bottom: 42px;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 32px;
+  padding: 5px 15px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.login-button:hover {
+  background-color: #b8a2c4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 32px;
+  padding: 5px 15px;
+}
+
+.username-input::placeholder {
+  font-size: 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  text-align: center;
+  color: #9c8aa5;
+  margin: 15px;
+}
+
+.password-input::placeholder {
+  font-size: 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  text-align: center;
+  color: #9c8aa5;
+  margin-bottom: 15px;
+}
+
+.username-input {
+  font-size: 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  text-align: center;
+  color: #732c7b;
+  margin: 15px;
+}
+
+.password-input {
+  font-size: 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  text-align: center;
+  color: #732c7b;
+  margin-bottom: 15px;
+}
+
+/* header component */
+
+.header-logo img {
+  width: 200px;
+  margin-bottom: 42px;
+  margin-top: 28px;
+}
+
+/* home container */
+
+.home-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* welcome page */
+
+.welcome-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.welcome-header img {
+  margin-top: 42px;
+  width: 200px;
+}
+
+.welcome-intro {
+  color: white;
+  padding: 42px;
+  font-size: 1.5em;
+}
+
+/* update track container */
+
+.update-track-container {
+  height: 100%;
+}
+
+.update-track-section {
+  margin: 42px;
+}
+
+.note-area {
+  text-align: center;
+  color: white;
+  resize: none;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  width: 80%;
+  background-color: transparent;
+  border: 1px solid #bdaec6;
+  border-radius: 30px;
+  font-size: 25px;
+  outline: none;
+  padding: 10px 0px;
+}
+
+.note-area::placeholder {
+  text-align: center;
+  color: #bdaec6;
+}
+
+/* new track container */
+
+.new-track-button {
+  margin-bottom: 42px;
+}
+
+.submit-newTrack {
+  margin-top: 50px;
+}
+
+.new-track-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-list {
+  font-size: 30px;
+  color: #ffffff;
+  padding: 10px 20px;
+  max-width: 100%;
+  width: 80%;
+  margin-top: 30px;
+  border: none;
+  border-radius: 30px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #873492 100%, #e5e5e5 100%);
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%, 0 0;
+  background-size: 15px auto, 100%;
+}
+
+.submit-newTrack > .common-button-newTrack {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #9c8aa5;
+  margin-bottom: 42px;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 32px;
+  padding: 5px 15px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.submit-newTrack > .common-button-newTrack:hover {
+  text-decoration: none;
+  background-color: #b8a2c4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 32px;
+  padding: 5px 15px;
+}
+
+/* journal wrapper */
+
+.journal-wrapper {
+  color: white;
+  border-bottom: 1px solid #9c8aa5;
+  margin: 10px;
+}
+
+.journal-detail {
+  margin: 10px;
+}
+
+.delete-section {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px;
+}
+
+.delete-button {
+  color: #9c8aa5;
+  font-weight: 900;
+  font-size: 1.2em;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-button:hover {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1.2em;
+}
+
+.symptom-text {
+  color: #9c8aa5;
+  font-size: 3em;
+  font-weight: 900;
+  margin-bottom: 1px;
+  margin-top: 0px;
+}
+
+.pain-rate-num {
+  color: #9c8aa5;
+  font-weight: 900;
+  font-size: 3em;
+  margin: 0px;
+}
+
+.edit-button {
+  cursor: pointer;
+  background-color: #732c7b;
+  width: 150px;
+  margin: 10px;
+  margin-bottom: 50px;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 32px;
+  padding: 5px 15px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+  background-color: #973ba1;
+  width: 150px;
+  margin: 10px;
+  margin-bottom: 50px;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 32px;
+  padding: 5px 15px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
