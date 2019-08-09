@@ -6,6 +6,7 @@
 
 import React from "react";
 import { navigate } from "hookrouter";
+import { NavLink } from "react-router-dom";
 
 const UpdateTrack = props => {
   const [pain_input, setPain_input] = React.useState("");
@@ -70,6 +71,7 @@ const UpdateTrack = props => {
     setEditMode(!editMode);
     setCurrentEditId(id);
     props.history.push("/updateTrack");
+    window.location.reload();
   };
 
   React.useEffect(() => {
@@ -77,7 +79,9 @@ const UpdateTrack = props => {
       handleGetIndividual(props.id);
     }
   });
+
   console.log(journalDetail_input);
+
   return (
     <div className="update-track-container">
       <form onSubmit={handleSubmit}>
@@ -131,11 +135,14 @@ const UpdateTrack = props => {
           />
         </div>
         <div>
-          {/* <NavLink exact className="common-button" to="/"> */}
           <button type="submit" className="common-button">
             {props.editMode ? "Update" : "Submit"}
           </button>
-          {/* </NavLink> */}
+        </div>
+        <div>
+          <NavLink className="common-button" to="/home">
+            Back
+          </NavLink>
         </div>
       </form>
     </div>

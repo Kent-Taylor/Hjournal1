@@ -2,7 +2,8 @@ import React from "react";
 import { withRouter } from "react-router";
 
 const Journal = props => {
-  const handleEditClick = () => {
+  const handleEditClick = id => {
+    props.editJournal(props.id);
     props.history.push("/updateTrack");
   };
   return (
@@ -26,7 +27,6 @@ const Journal = props => {
           className="edit-button"
           onClick={() => {
             handleEditClick();
-            props.editJournal(props.id);
           }}
           to="/updateTrack"
         >

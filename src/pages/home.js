@@ -30,10 +30,10 @@ const Home = props => {
     setEditMode(!editMode);
     setCurrentEditId(id);
     props.history.push("/updateTrack");
-    console.log(currentEditId(id));
   };
 
   console.log("editMode", currentEditId);
+
   const renderJournals = () => {
     return journals.map(journal => {
       return (
