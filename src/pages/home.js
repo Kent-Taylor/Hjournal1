@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import Journal from "../components/journal";
-
 const Home = props => {
   const [journals, setJournals] = React.useState([]);
   const [editMode, setEditMode] = React.useState(false);
@@ -13,6 +12,7 @@ const Home = props => {
       let result = await fetch("https://hjournal.herokuapp.com/journals")
         .then(response => response.json())
         .then(data => setJournals(data))
+        .then(window.location.reload)
         .catch(error => console.log(error));
     };
     fetchData();
@@ -27,12 +27,8 @@ const Home = props => {
   };
 
   const editJournal = id => {
-    setEditMode(!editMode);
-    setCurrentEditId(id);
-    props.history.push("/updateTrack");
+    props.editJournal(id);
   };
-
-  console.log("editMode", currentEditId);
 
   const renderJournals = () => {
     return journals.map(journal => {
@@ -43,12 +39,13 @@ const Home = props => {
           text={journal.symptom}
           pain_rate={journal.pain_rate}
           journal_detail={journal.journal_detail}
-          deleteJournal={deleteJournal}
           editJournal={editJournal}
+          deleteJournal={deleteJournal}
         />
       );
     });
   };
+
   return (
     <form>
       <div className="home-container">

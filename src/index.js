@@ -20,8 +20,10 @@ function App(props) {
   const editJournal = id => {
     setEditMode(!editMode);
     setCurrentEditId(id);
-    props.history.push("/updateTrack");
   };
+
+  console.log("home id: ", currentEditId);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -30,7 +32,11 @@ function App(props) {
 
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route exact path="/home" component={Home} />
+            <Route
+              exact
+              path="/home"
+              render={props => <Home {...props} editJournal={editJournal} />}
+            />
             <Route path="/welcome" component={Welcome} />
             <Route
               path="/updateTrack"
@@ -42,7 +48,10 @@ function App(props) {
                 />
               )}
             />
-            <Route path="/journal/:id" component={Journal} />
+            <Route
+              path="/journal/:id"
+              render={props => <Journal {...props} editJournal={editJournal} />}
+            />
           </Switch>
         </div>
       </BrowserRouter>

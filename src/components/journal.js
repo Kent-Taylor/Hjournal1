@@ -2,10 +2,12 @@ import React from "react";
 import { withRouter } from "react-router";
 
 const Journal = props => {
-  const handleEditClick = id => {
-    props.editJournal(props.id);
+  const handleEditClick = () => {
     props.history.push("/updateTrack");
   };
+
+  console.log("id: ", props.id);
+
   return (
     <div className="journal">
       <div className="journal-wrapper">
@@ -14,7 +16,7 @@ const Journal = props => {
             className="delete-button"
             onClick={() => props.deleteJournal(props.id)}
           >
-            <p>X</p>
+            X
           </button>
         </div>
         <p className="symptom-text">{props.text}</p>
@@ -27,6 +29,7 @@ const Journal = props => {
           className="edit-button"
           onClick={() => {
             handleEditClick();
+            props.editJournal(props.id);
           }}
           to="/updateTrack"
         >

@@ -7,32 +7,25 @@
 import React from "react";
 import { navigate } from "hookrouter";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const UpdateTrack = props => {
   const [pain_input, setPain_input] = React.useState("");
   const [journalDetail_input, setjournalDetail_input] = React.useState("");
   const [symptomInput, setSymptomInput] = React.useState("");
-  const [journals, setJournals] = React.useState([]);
-  const [editMode, setEditMode] = React.useState(false);
-  const [currentEditId, setCurrentEditId] = React.useState("");
 
   const handleSubmit = async e => {
     e.preventDefault();
     if (props.editMode) {
-      await fetch(`https://hjournal.herokuapp.com/journal/${props.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
+      await axios
+        .put(`https://hjournal.herokuapp.com/journal/${props.id}`, {
           symptom: symptomInput,
           pain_rate: pain_input,
-          journal_detal: journalDetail_input
+          journal_detail: journalDetail_input
         })
-      })
         .then(window.location.reload)
         .then(navigate("/home"))
+        .then(window.location.reload)
         .catch(error => console.log("put error", error));
 
       navigate("/home");
@@ -51,36 +44,26 @@ const UpdateTrack = props => {
       })
         .then(result => result.json())
         .then(setjournalDetail_input(""))
-        .then(window.location.reload)
         .then(props.history.push("/home"))
         .catch(err => console.log("form submit", err));
     }
   };
 
   const handleGetIndividual = id => {
-    fetch(`https://hjournal.herokuapp.com/journal/${props.id}`)
+    fetch(`https://hjournal.herokuapp.com/journal/${id}`)
       .then(response => response.json())
       .then(data => {
-        setPain_input(data.pain_input);
-        setjournalDetail_input(data.journalDetail_input);
-        setSymptomInput(data.symptomInput);
+        setPain_input(data.pain_rate);
+        setjournalDetail_input(data.journal_detail);
+        setSymptomInput(data.symptom);
       });
-  };
-
-  const editJournal = id => {
-    setEditMode(!editMode);
-    setCurrentEditId(id);
-    props.history.push("/updateTrack");
-    window.location.reload();
   };
 
   React.useEffect(() => {
     if (props.editMode) {
       handleGetIndividual(props.id);
     }
-  });
-
-  console.log(journalDetail_input);
+  }, [props.editMode]);
 
   return (
     <div className="update-track-container">
