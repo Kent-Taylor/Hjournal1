@@ -14,7 +14,7 @@ const Journal = props => {
             className="delete-button"
             onClick={() => props.deleteJournal(props.id)}
           >
-            X
+            <p>X</p>
           </button>
         </div>
         <p className="symptom-text">{props.text}</p>
