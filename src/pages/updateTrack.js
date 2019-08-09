@@ -9,6 +9,8 @@ import { navigate } from "hookrouter";
 import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 
+import Doctor from "../images/doctor.png";
+
 import { Container, Button, Alert } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 
@@ -151,6 +153,8 @@ const UpdateTrack = props => {
               <Alert variant="primary" onClose={() => setShowMessage(false)}>
                 <div className="submition-message">
                   <h1>Your track has been submitted!</h1>
+
+                  <img className="doctor-image" src={Doctor} />
                 </div>
                 <Button
                   type="submit"
